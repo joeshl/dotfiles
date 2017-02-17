@@ -44,7 +44,7 @@ alias webserver='python -m SimpleHTTPServer 8001'
 alias wp-cli='php ~/bin/wp-cli.phar'
 alias zshconfig="vi ~/.zshrc"
 
-source .alias_local
+source ~/.alias_local
 
 export PATH="/usr/local/sbin:$PATH"
 
