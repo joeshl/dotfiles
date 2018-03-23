@@ -28,20 +28,24 @@ Plugin 'adoy/vim-php-refactoring-toolbox'
 Plugin 'mustache/vim-mustache-handlebars'
 Plugin 'kana/vim-textobj-user'
 Plugin 'kana/vim-textobj-line'
+Plugin 'godlygeek/tabular'
+Plugin 'tobyS/vmustache'
+Plugin 'tobyS/pdv'
 "Plugin 'VOoM'
 "Plugin 'godlygeek/tabular'
-"Plugin 'SirVer/ultisnips'
+Plugin 'SirVer/ultisnips'
 "vim-fugitive
 "vim-javascript-syntax
 "vim-less
 "vim-snippets
+Plugin 'posva/vim-vue'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
 
 
-
+:autocmd InsertEnter,InsertLeave * set cul!
 
 
 "----Visuals--------------------------------------------------------------------
@@ -53,11 +57,14 @@ colorscheme molokai
 set colorcolumn=80
 
 
-set guifont=Fira\ Mono\ for\ Powerline:h16
+"set guifont=Fira\ Mono\ for\ Powerline:h16
+silent! set macligatures
+set guifont=Fira\ Code:h16
 "set guioptions-=T " Removes top toolbar
 set guioptions-=r " Removes right hand scroll bar
 "set go-=L " Removes left hand scroll bar
-set linespace=5
+set linespace=14
+
 
 "--------------Search-----------------------------------------------------------
 " Highlight searches
@@ -76,6 +83,7 @@ let mapleader=","
 "Make it easy to edit our .vimrc file
 nmap <leader>ev :tabedit ~/.vimrc<cr>
 nmap <leader>es :tabedit ~/.vim/snippets<cr>
+nmap <leader>dt :%s/<[^>]*>//<cr>
 
 "Add simple highlight removal
 nmap <leader><space> :nohlsearch<cr>
@@ -95,7 +103,8 @@ nmap <leader>1 :NERDTreeToggle<cr>
 " Ctrl P search for tags
 nmap <c-R> :CtrlPBufTag<cr>
 
-
+" Find in ctags
+nmap <leader>f :tag<space>
 
 
 "--------------Plug-in config---------------------------------------------------
@@ -105,7 +114,11 @@ nmap <c-R> :CtrlPBufTag<cr>
 "/
 
 " Ignore some files and directories
-let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$|node_modules$'
+let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$|node_modules|vendor$'
+"let g:ctrlp_cache_dir = $HOME . '/.cache/ctrlp'
+if executable('ag')
+  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+endif
 
 "/
 "/ G Replace
@@ -130,7 +143,31 @@ endfunction
 autocmd FileType php inoremap <Leader>nf <Esc>:call IPhpExpandClass()<CR>
 autocmd FileType php noremap <Leader>nf :call PhpExpandClass()<CR>
 
+"/
+"/ PDV
+"/
+let g:pdv_template_dir = $HOME ."/.vim/bundle/pdv/templates_snip"
+nnoremap <leader>d :call pdv#DocumentWithSnip()<CR>
 
+"/
+"/ UltiSnips
+"/
+" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+
+" If you want :UltiSnipsEdit to split your window.
+" let g:UltiSnipsEditSplit="vertical"
+
+"/
+"/ AirLine
+"
+" Enable the list of buffers
+let g:airline#extensions#tabline#enabled = 1
+
+" Show just the filename
+let g:airline#extensions#tabline#fnamemod = ':t'
 
 "--------------Auto-commands----------------------------------------------------
 augroup autosourcing
@@ -161,13 +198,36 @@ augroup END
 set shiftwidth=4
 set autoindent
 set smartindent
+set breakindent
 set expandtab
 
 "Set our desired autocompletion matching.
 set complete=.,w,b,u
+set wrap
 
 
 
+"-----Buffer -------------------------------------------------------------------
+" This allows buffers to be hidden if you've modified a buffer.
+" This is almost a must if you wish to use buffers in this way.
+set hidden
+
+" To open a new empty buffer
+" This replaces :tabnew which I used to bind to this mapping
+nmap <leader>T :enew<cr>
+
+" Move to the next buffer
+nmap <leader>l :bnext<CR>
+
+" Move to the previous buffer
+nmap <leader>h :bprevious<CR>
+
+" Close the current buffer and move to the previous one
+" This replicates the idea of closing a tab
+nmap <leader>bq :bp <BAR> bd #<CR>
+
+" Show all open buffers and their status
+nmap <leader>bl :ls<CR>
 
 "-------------------------------------------------------------------------------
 "-------------------------------------------------------------------------------
@@ -186,7 +246,12 @@ endif
 
 
 
-nmap ,t :!phpunit %<cr>
+nmap ,t :!clear && phpunit % --stop-on-error --stop-on-failure<cr>
+nmap ,c :!clear && phpcs --standard=code_rules.xml  %<cr>
+nmap ,g :!clear && gulp<cr>
+nmap ,s :!clear && sublime %<cr>
+nmap ,p :!clear && php %<cr>
+nmap ,o :!clear && open %<cr>
 
 " End Johnathan's File
 "-------------------------------------------------------------------------------
@@ -225,11 +290,12 @@ set modelines=2
 set exrc
 set secure
 " Enable line numbers
-set number
+"set number
 " Enable syntax highlighting
 syntax on
 " Highlight current line
-set cursorline
+" JCE Don't hightlight for faster scrolling
+set nocursorline
 " Make tabs as wide as four spaces
 set tabstop=4
 " Show “invisible” characters
@@ -249,7 +315,7 @@ set nostartofline
 " Show the cursor position
 set ruler
 " Don’t show the intro message when starting Vim
-set shortmess=atI
+"set shortmess=atI
 " Show the current mode
 set showmode
 " Show the filename in the window titlebar
@@ -257,10 +323,10 @@ set title
 " Show the (partial) command as it’s being typed
 set showcmd
 " Use relative line numbers
-if exists("&relativenumber")
-    set relativenumber
-    au BufReadPost * set relativenumber
-endif
+"if exists("&relativenumber")
+"    set relativenumber
+"    au BufReadPost * set relativenumber
+"endif
 " Start scrolling three lines before the horizontal window border
 set scrolloff=3
 
@@ -276,3 +342,9 @@ noremap <leader>ss :call StripWhitespace()<CR>
 
 " Save a file as root (,W)
 noremap <leader>W :w !sudo tee % > /dev/null<CR>
+
+" Notes and Tips
+" - Press zz to center the line where the cursor is located
+" - :ts to see all matches for the last tag
+" - ctrl+] to jump to occurance of item under the cursor
+" - ctrl+^ to jump to the previous buffer
