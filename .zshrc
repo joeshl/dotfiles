@@ -5,7 +5,7 @@ export ZSH=/Users/joeshl/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="agnoster"
+ZSH_THEME="robbyrussell"
 
 # Uncomment the following line to use hyphen-insensitive completion. Case
 # sensitive completion must be off. _ and - will be interchangeable.
@@ -22,7 +22,7 @@ plugins=(git laravel5 brew)
 
 # User configuration
 
-export PATH="/usr/local/bin:/usr/local/Cellar/php54/5.4.45_3/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/local/git/bin:/usr/local/munki:/Users/joeshl/.composer/vendor/bin:/Users/joeshl/bin:./vendor/bin"
+export PATH="/usr/local/bin:/usr/local/Cellar/php54/5.4.45_3/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/local/git/bin:/usr/local/munki:$HOME/.composer/vendor/bin:$HOME/bin:./vendor/bin"
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
@@ -37,14 +37,24 @@ source $ZSH/oh-my-zsh.sh
 #
 # Example aliases
 alias c='clear'
-alias gs='git status'
+# alias gs='git status'
 alias npmls='npm ls --depth=0'
 alias ohmyzsh="vi ~/.oh-my-zsh"
 alias webserver='python -m SimpleHTTPServer 8001'
 alias wp-cli='php ~/bin/wp-cli.phar'
 alias zshconfig="vi ~/.zshrc"
+alias ak="ack -i --ignore-dir vendor --ignore-dir storage --ignore-file tags"
+alias artisan='php artisan'
+alias art='php artisan'
+alias tink='artisan tinker'
+alias fresh="artisan migrate:refresh --seed"
+alias wip="git add . && git commit -m 'wip'"
+alias p="phpunit"
+alias pf="phpunit --filter "
+alias px="phpunit --stop-on-failure --stop-on-error "
+alias xx="exit"
 
 source ~/.alias_local
 
-export PATH="/usr/local/sbin:$PATH"
+export PATH="/usr/local/sbin:node_modules/.bin:$PATH"
 
