@@ -2,6 +2,11 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
+"https://github.com/vim/vim/issues/3117#issuecomment-402622616
+if has('python3')
+  silent! python3 1
+endif
+
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -164,8 +169,8 @@ let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 "/ AirLine
 "
 " Enable the list of buffers
-let g:airline#extensions#tabline#enabled = 1
-
+let g:airline#extensions#tabline#enabled = 0
+let g:airline#extensions#bufferline#enabled = 0
 " Show just the filename
 let g:airline#extensions#tabline#fnamemod = ':t'
 
