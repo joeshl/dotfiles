@@ -5,7 +5,7 @@ export ZSH=~/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="robbyrussell"
+ZSH_THEME="refined"
 
 # Uncomment the following line to use hyphen-insensitive completion. Case
 # sensitive completion must be off. _ and - will be interchangeable.
@@ -18,7 +18,7 @@ HYPHEN_INSENSITIVE="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git laravel5 brew)
+plugins=(brew git-open)
 
 # User configuration
 
@@ -36,23 +36,22 @@ source $ZSH/oh-my-zsh.sh
 # For a full list of active aliases, run `alias`.
 #
 # Example aliases
-alias c='clear'
-# alias gs='git status'
-alias npmls='npm ls --depth=0'
-alias ohmyzsh="vi ~/.oh-my-zsh"
-alias webserver='python -m SimpleHTTPServer 8001'
-alias wp-cli='php ~/bin/wp-cli.phar'
-alias zshconfig="vi ~/.zshrc"
 alias ak="ack -i --ignore-dir vendor --ignore-dir storage --ignore-file tags"
-alias artisan='php artisan'
 alias art='php artisan'
-alias tink='artisan tinker'
-alias fresh="artisan migrate:refresh --seed"
-alias wip="git add . && git commit -m 'wip'"
+alias c='clear'
+#alias fresh="artisan migrate:refresh --seed"
+alias gst='git status'
+alias npmls='npm ls --depth=0'
+alias ohmyzsh="vim ~/.oh-my-zsh"
 alias p="phpunit"
 alias pf="phpunit --filter "
 alias px="phpunit --stop-on-failure --stop-on-error "
+alias tink='artisan tinker'
+alias webserver='python -m SimpleHTTPServer 8001'
+alias wip="git add . && git commit -m 'wip'"
+alias wp-cli='php ~/bin/wp-cli.phar'
 alias xx="exit"
+alias zshconfig="vi ~/.zshrc"
 
 source ~/.alias_local
 
