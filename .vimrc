@@ -44,6 +44,7 @@ Plugin 'SirVer/ultisnips'
 "vim-less
 "vim-snippets
 Plugin 'posva/vim-vue'
+"Plugin 'beanworks/vim-phpfmt'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
