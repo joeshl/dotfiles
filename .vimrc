@@ -19,7 +19,6 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'vim-airline/vim-airline'
-Plugin 'tomasr/molokai'
 Plugin 'rking/ag.vim'
 Plugin 'skwp/greplace.vim'
 Plugin 'tpope/vim-surround'
@@ -57,7 +56,7 @@ filetype plugin indent on    " required
 "----Visuals--------------------------------------------------------------------
 " Load the Molokai Color Theme
 let g:molokai_original = 0
-colorscheme molokai
+"colorscheme molokai
 
 " Add a colored column at line 80
 set colorcolumn=80
@@ -69,8 +68,7 @@ set guifont=Fira\ Code:h16
 "set guioptions-=T " Removes top toolbar
 set guioptions-=r " Removes right hand scroll bar
 "set go-=L " Removes left hand scroll bar
-set linespace=14
-
+set linespace=15
 
 "--------------Search-----------------------------------------------------------
 " Highlight searches
@@ -159,12 +157,13 @@ nnoremap <leader>d :call pdv#DocumentWithSnip()<CR>
 "/ UltiSnips
 "/
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+let g:UltiSnipsSnippetDirectories = ['~/.vim/UltiSnips', 'UltiSnips']
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 
 " If you want :UltiSnipsEdit to split your window.
-" let g:UltiSnipsEditSplit="vertical"
+let g:UltiSnipsEditSplit="vertical"
 
 "/
 "/ AirLine

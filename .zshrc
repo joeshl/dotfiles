@@ -18,11 +18,25 @@ HYPHEN_INSENSITIVE="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(brew git-open)
+plugins=(git-open)
 
 # User configuration
 
-export PATH="/usr/local/bin:/usr/local/Cellar/php54/5.4.45_3/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/local/git/bin:/usr/local/munki:$HOME/.composer/vendor/bin:$HOME/bin:./vendor/bin"
+export PATH="/usr/local/bin"
+export PATH="$PATH:/usr/local/bin"
+export PATH="$PATH:/usr/bin"
+export PATH="$PATH:/bin"
+export PATH="$PATH:/usr/sbin"
+export PATH="$PATH:/sbin"
+export PATH="$PATH:/opt/X11/bin"
+export PATH="$PATH:/usr/local/git/bin"
+export PATH="$PATH:/usr/local/munki"
+export PATH="$PATH:$HOME/.composer/vendor/bin"
+export PATH="$PATH:$HOME/bin"
+export PATH="$PATH:./vendor/bin"
+export PATH="/usr/local/sbin:node_modules/.bin:$PATH"
+
+export ANSIBLE_INVENTORY=$HOME/.ansible-hosts
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
@@ -52,8 +66,9 @@ alias wip="git add . && git commit -m 'wip'"
 alias wp-cli='php ~/bin/wp-cli.phar'
 alias xx="exit"
 alias zshconfig="vi ~/.zshrc"
+alias folderSizes="sh ~/Projects/dotfiles/folderSizes.sh"
+alias gitclean="git branch --merged | egrep -v \"(^\\*|master|dev)\" | xargs git branch -d"
+alias gitcleanremote="git remote prune origin"
 
 source ~/.alias_local
-
-export PATH="/usr/local/sbin:node_modules/.bin:$PATH"
 
