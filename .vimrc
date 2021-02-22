@@ -44,6 +44,8 @@ Plugin 'SirVer/ultisnips'
 "vim-snippets
 Plugin 'posva/vim-vue'
 "Plugin 'beanworks/vim-phpfmt'
+Plugin 'vim-test/vim-test'
+Plugin 'dracula/vim', { 'name': 'dracula' }
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -55,8 +57,9 @@ filetype plugin indent on    " required
 
 "----Visuals--------------------------------------------------------------------
 " Load the Molokai Color Theme
-let g:molokai_original = 0
+"let g:molokai_original = 0
 "colorscheme molokai
+colorscheme dracula
 
 " Add a colored column at line 80
 set colorcolumn=80
