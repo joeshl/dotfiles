@@ -82,7 +82,7 @@ alias xx="exit"
 alias zshconfig="vi ~/.zshrc"
 alias zshsource="source ~/.zshrc"
 
-source ~/.alias_local
+source ~/.zshrc_local
 
 # export DOCKER_TLS_VERIFY="1"
 # export DOCKER_HOST="tcp://192.168.99.100:2376"
@@ -93,7 +93,6 @@ export PATH="/usr/local/opt/php@7.4/sbin:$PATH"
 
 
 export KUBECONFIG="$HOME/.kube/config:$HOME/.kube/itk8s-joeshl.conf"
-export HOMEBREW_GITHUB_API_TOKEN=63b506e3b0f6862c8ac23cc4cd3fbc81089efe61
 
 # export NVM_DIR="$HOME/.nvm"
 # [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
