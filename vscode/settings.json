@@ -1,0 +1,124 @@
+{
+    //**************************************************************************
+    "workbench.editor.enablePreviewFromQuickOpen": false,
+    "workbench.tree.indent": 20,
+    "workbench.startupEditor": "newUntitledFile",
+    "workbench.colorTheme": "Dracula",
+    "workbench.editor.enablePreview": false,
+    "workbench.settings.editor": "json",
+    //**************************************************************************
+    "breadcrumbs.enabled": true,
+    //**************************************************************************
+    "editor.detectIndentation": false,
+    "editor.fontFamily": "Fira Code, Victor Mono, Menlo, Monaco, 'Courier New', monospace",
+    "editor.fontWeight": "400",
+    "editor.fontLigatures": true,
+    "editor.fontSize": 18,
+    "editor.formatOnSave": true,
+    "editor.lineHeight": 44,
+    "editor.minimap.enabled": true,
+    "editor.rulers": [
+        80,
+        120
+    ],
+    //**************************************************************************
+    "emmet.triggerExpansionOnTab": true,
+    //**************************************************************************
+    "search.exclude": {
+        "**/code_coverage": true,
+        "**/public": true,
+        "vendor/": true,
+        "**/storage/debugbar": true,
+        "**/storage/framework/views": true,
+        "packages/": true,
+        ".cache-loader/": true,
+        "dist/": true,
+        ".phpunit.result.cache": true,
+        "package-lock.json": true,
+        "report.xml": true,
+        "bootstrap/": true,
+    },
+    //**************************************************************************
+    "vim.useSystemClipboard": true,
+    "vim.foldfix": true,
+    //**************************************************************************
+    "window.zoomLevel": 0,
+    //**************************************************************************
+    "cSpell.words": [
+        "Brightcove",
+        "Paginator"
+    ],
+    //**************************************************************************
+    /**
+    * Formatting Options
+    */
+    "eslint.autoFixOnSave": true,
+    "eslint.options": {
+        "extensions": [
+            ".js",
+            ".vue"
+        ]
+    },
+    "eslint.validate": [
+        "vue",
+        "javascript",
+        "javascriptreact",
+    ],
+    "eslint.workingDirectories": [
+        "./resources/js"
+    ],
+    "files.trimTrailingWhitespace": true,
+    "html.format.indentInnerHtml": true,
+    "php-cs-fixer.executablePath": "php-cs-fixer",
+    "php-cs-fixer.onsave": true,
+    "vetur.format.enable": false,
+    "[javascript]": {
+        "editor.formatOnSave": false
+    },
+    "[javascriptreact]": {
+        "editor.formatOnSave": false
+    },
+    "[vue]": {
+        "editor.formatOnSave": false
+    },
+    "[yaml]": {
+        "editor.formatOnSave": false
+        // "editor.insertSpaces": true,
+        // "editor.tabSize": 4,
+        // "editor.autoIndent": "full"
+    },
+    "cSpell.userWords": [
+        "Dispatchable",
+        "vcnm",
+        "Queueable",
+        "actuals",
+    ],
+    "phpcs.standard": "./phpcs.xml",
+    "editor.multiCursorModifier": "ctrlCmd",
+    "workbench.editor.showTabs": true,
+    "editor.codeLens": false,
+    "explorer.openEditors.visible": 0,
+    "terminal.integrated.fontFamily": "Fira Code, Victor Mono, Menlo, Monaco, 'Courier New', monospace",
+    "terminal.integrated.fontSize": 16,
+    "terminal.integrated.fontWeight": "100",
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": true
+    },
+    "search.useIgnoreFiles": false,
+    // "vim.insertModeKeyBindings": [
+    //     {
+    //         "before": [
+    //             "j",
+    //             "j"
+    //         ],
+    //         "after": [
+    //             "<Esc>"
+    //         ]
+    //     }
+    // ],
+    "workbench.activityBar.visible": true,
+    // "workbench.editor.showTabs": false,
+    "diffEditor.renderSideBySide": false,
+    "tailwindCSS.colorDecorators": "off",
+    "window.restoreWindows": "none",
+}
