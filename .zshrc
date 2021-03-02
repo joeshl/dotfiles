@@ -59,6 +59,9 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 #alias fresh="artisan migrate:refresh --seed"
 alias addDateTimeToPhotos='exiftool -d %Y-%m-%d_%H%M%S_%%f.%%e "-filename<CreateDate" .'
+# alias renameNikon='exiftool -d %Y-%m-%d_nikon-p7700_%%f.%%e "-filename<CreateDate" .'
+# alias renamejce='exiftool -d %Y-%m-%d_je-iphone_%%f.%%e "-filename<CreateDate" .'
+# alias renamekre='exiftool -d %Y-%m-%d_ke-iphone_%%f.%%e "-filename<CreateDate" .'
 alias art='php artisan'
 alias c='clear'
 alias chrome="open -a 'Google Chrome'"
